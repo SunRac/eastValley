@@ -1,4 +1,4 @@
-package com.eastValley.javaConfig;
+package com.eastValley.javaConfig.mvc;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,14 +20,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 //开启springMvc
 @EnableWebMvc
 //开启组件扫描，不用显式配置控制器
-@ComponentScan("com.eastValley.control")
+@ComponentScan({"com.eastValley.control","com.eastValley.data"})
 public class WebConfig extends WebMvcConfigurerAdapter {
     //配置JSP视图解析器
     @Bean
     public ViewResolver viewResolver(){
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WET-INF/views/");
-        resolver.setSuffix(".jsp");
+        resolver.setPrefix("/src/module/valley/");
+        resolver.setSuffix(".html");
         resolver.setExposeContextBeansAsAttributes(true);
         return resolver;
     }

@@ -1,4 +1,4 @@
-package com.eastValley.javaConfig;
+package com.eastValley.javaConfig.mvc;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
