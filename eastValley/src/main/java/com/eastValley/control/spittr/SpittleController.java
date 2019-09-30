@@ -22,7 +22,7 @@ public class SpittleController {
     }
     @RequestMapping(method = RequestMethod.GET)
     public String spittles(Model model) {
-        //model实际是一个map，它会传递给视图，这样数据就渲染到客户端了
+        //model实际是一个map，它会传递给视图，这样数据(spittleRepository)就渲染到客户端了
         model.addAttribute("spittleList", spittleRepository.findSpittles(Long.MAX_VALUE, 20));
         return "spittles";
     }
