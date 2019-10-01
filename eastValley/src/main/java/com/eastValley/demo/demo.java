@@ -10,5 +10,7 @@ public class demo {
         for (int i = 0; i < 10; i++) {
             System.out.println(Math.random());
         }
+        int a = 100;
+        System.out.println(a);
     }
 }
