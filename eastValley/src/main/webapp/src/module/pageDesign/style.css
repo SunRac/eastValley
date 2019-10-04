@@ -1,0 +1,50 @@
+body{
+    /*background-image: url("2.jpg");*/
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-attachment: fixed;
+    background-size: 300px 300px;
+
+ }
+
+h5{
+text-indent: 1.5rem;
+}
+
+#p1 {
+    text-transform: capitalize;
+    /*text-shadow: 100px 5px 1px #FF0000;*/
+    width: 100px;
+    word-wrap: normal;
+}
+#p2{
+    text-transform: lowercase;
+}
+#p3{
+    text-transform: uppercase;
+}
+#p4 {
+    font-size: 10px;
+    font-family: 楷体;
+    color: chartreuse;
+}
+#p5{
+    outline-style: solid;
+    outline-color: greenyellow;
+    outline-width: thick;
+}
+/**去掉连接中下划线*/
+a:link {
+    text-decoration: none;
+    color: red;
+}
+a:visited{
+    color: blue;
+}
+a:hover{
+    color: greenyellow;
+}
+a:active{
+color: aqua;
+}
+
