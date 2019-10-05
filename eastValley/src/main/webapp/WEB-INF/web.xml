@@ -3,6 +3,29 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
                    version="4.0">
+    <!--注解驱动dispatchServlet会导致静态资源访问路径错误，只能使用.xml了-->
+ <!--   <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring/spring-all.xml</param-value>
+    </context-param>
+    &lt;!&ndash;配置contextLoaderListener上下文&ndash;&gt;
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    &lt;!&ndash;配置dispacherServlet上下文&ndash;&gt;
+    <servlet>
+        <servlet-name>appServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring/appServlet/servlet-context.xml</param-value>
+        </init-param>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>appServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>-->
 <!--在此配置的值会覆盖index.jsp-->
 <welcome-file-list>
     <welcome-file>/src/module/valley/index.html</welcome-file>
