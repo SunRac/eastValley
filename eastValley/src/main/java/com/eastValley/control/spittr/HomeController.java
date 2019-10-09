@@ -11,11 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
  **/
 @Controller
 //类级别的请求处理
-@RequestMapping({"/","/home","/index"})
 public class HomeController {
     //方法级别的请求处理
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET,value = {"/","/home","/index"})
     public String home(){
         return "home";
     }
+
+    @RequestMapping(method = RequestMethod.GET,value = {"/home2"})
+    public String home4Carousel(){
+        return "home4Carousel";
+    }
+
 }

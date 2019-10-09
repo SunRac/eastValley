@@ -28,6 +28,7 @@
     </servlet-mapping>-->
 <!--在此配置的值会覆盖index.jsp-->
 <welcome-file-list>
+    <welcome-file>/src/module/valley/home.html</welcome-file>
     <welcome-file>/src/module/valley/index.html</welcome-file>
 </welcome-file-list>
 </web-app>
