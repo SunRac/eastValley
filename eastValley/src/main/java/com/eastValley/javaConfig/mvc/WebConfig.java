@@ -20,7 +20,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 //开启springMvc
 @EnableWebMvc
 //开启组件扫描，不用显式配置控制器
-@ComponentScan({"com.eastValley.control","com.eastValley.data"})
+@ComponentScan({"com.eastValley"})
 public class WebConfig extends WebMvcConfigurerAdapter {
     //配置JSP视图解析器
     @Bean

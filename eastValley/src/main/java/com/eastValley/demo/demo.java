@@ -7,13 +7,13 @@ package com.eastValley.demo;
  **/
 public class demo {
     public static void main(String[] args) {
-        //RandomTest();
-        int2Str();
+        RandomTest();
+        //int2Str();
     }
 
     private static void RandomTest() {
         for (int i = 0; i < 10; i++) {
-            System.out.println(Math.random());
+            System.out.println(Math.random()*9);
         }
         int a = 100;
         System.out.println(a);
