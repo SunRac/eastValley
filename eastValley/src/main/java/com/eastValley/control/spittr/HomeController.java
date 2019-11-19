@@ -1,5 +1,7 @@
 package com.eastValley.control.spittr;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,13 +14,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 //类级别的请求处理
 public class HomeController {
+    private static Logger logger = LoggerFactory.getLogger(HomeController.class);
     //方法级别的请求处理
-    @RequestMapping(method = RequestMethod.GET,value = {"/","/home","/index"})
+    @RequestMapping(method = RequestMethod.GET,value = {"/home","/index"})
     public String home(){
+        logger.info("首页方法触发了");
         return "home";
     }
 
-    @RequestMapping(method = RequestMethod.GET,value = {"/ev/home"})
+    @RequestMapping(method = RequestMethod.GET,value = {"/homeNew"})
     public String home4Carousel(){
         return "home4Carousel";
     }
