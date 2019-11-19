@@ -1,0 +1,28 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-color: snow;
+}
+
+a:link, a:visited {
+    font-weight: bold;
+    color: darkgray;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+li{
+    padding: 0px 10px ;
+    display: inline;
+}
+.navbar-right li:hover{
+    background-color: salmon;
+}
+
+.navbar-nav a{
+    color: #337ab7 !important;
+}
