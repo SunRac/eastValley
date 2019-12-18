@@ -15,6 +15,8 @@ import java.util.Properties;
  **/
 public class PropsUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(PropsUtil.class);
+//    如果属性文件确定，推荐静态初始化属性对象
+//    private static final Properties PROPS = new Properties();
 
     /**
      * 加载属性文件
@@ -45,13 +47,14 @@ public class PropsUtil {
     public static String getString(Properties props, String key, String defaultValue) {
         String value = defaultValue;
         if(props.containsKey(key)){
-            value = props.getProperty(key);
+            value = props.getProperty(key).trim();
         }
         return value;
     }
 
+    //查询不到时，返回null
     public static String getString(Properties props, String key) {
-        return getString(props, key, "");
+        return getString(props, key, null);
     }
 
 
@@ -63,7 +66,7 @@ public class PropsUtil {
     public static int getInt(Properties props, String key, int defaultValue) {
         int value = defaultValue;
         if(props.containsKey(key)) {
-            value = Integer.parseInt(props.getProperty(key));
+            value = Integer.parseInt(getString(props, key));
         }
         return value;
     }
@@ -76,7 +79,7 @@ public class PropsUtil {
     public static boolean getBoolean(Properties props, String key, boolean defaultValue) {
         boolean value = defaultValue;
         if(props.containsKey(key)) {
-            value = Boolean.parseBoolean(props.getProperty(key));
+            value = Boolean.parseBoolean(getString(props, key));
         }
         return value;
     }
