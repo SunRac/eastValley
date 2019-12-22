@@ -1,46 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>空谷</title>
-    <link type="text/css"  rel="stylesheet" href="../../assets/css/valley/index.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="技术使人进步，激发技术的潜力">
+  <title>今夕复何夕，共此灯烛光</title>
+
+  <link rel="shortcut icon" href="favicon.ico">
+  <link href="src/assets/css/common/bootstrap.min.css" rel="stylesheet">
+  <link href="src/assets/css/common/bootstrap-grid.min.css" rel="stylesheet">
+  <link href="src/assets/css/common/bootstrap-reboot.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="src/assets/css/common/main.css">
+  <link rel="stylesheet" href="src/assets/css/valley/index.css">
 </head>
+
 <body>
-<div class="myContainer">
-    <div class="header">
-        <div class="header_title">
-            空谷
-        </div>
-        <div class="header_nav">
-            <div class="header_navbar">
-            <ul>
-                <li><a href="#">导航</a></li>
-                <li><a href="#">注册/登录</a></li>
-                <li><a href="#">个人中心</a></li>
-                <li><a href="#">联系</a></li>
-            </ul>
-            </div>
-            <div class="header_img">
-                <img src=""></img>
-            </div>
-            <div class="header_input">
-                <form>
-                    <input type="text">
-                </form>
-            </div>
-        </div>
+
+  <!--Navbar Start-->
+  <nav class="navbar navbar-expand-lg fixed-top custom-nav sticky">
+    <div class="container">
+      <!-- LOGO -->
+      <a class="logo navbar-brand logo-white" href="/">
+        <span class="mdi md-48 ">空谷</span>
+      </a>
+      <!--折叠导航栏，手机上以折叠显示，电脑隐藏-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="mdi mdi-menu"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mx-auto navbar-center" id="mySidenav">
+          <li class="nav-item active">
+            <a href="#home" class="nav-link">
+              <i class="mdi shj-home-outline"></i> 主页</a>
+          </li>
+          <li class="nav-item">
+            <a href="#howitworks" class="nav-link">
+              <i class="mdi shj-home-category"></i> 分类</a>
+          </li>
+          <li class="nav-item">
+            <a href="#features" class="nav-link">
+              <i class="mdi shj-home-contact"></i> 联系我</a>
+          </li>
+          <li class="nav-item">
+            <a href="#howitworks" class="nav-link">
+              <i class="mdi shj-home-about"></i> 关于</a>
+          </li>
+        </ul>
+        <!--隐藏，保持页面的简洁，宁可少些，不要加无用的东西，有需要再展示-->
+        <!--<div class="hide_phone">
+          <a class="btn btn-sm log_btn">
+            <i class="mdi mdi-github-face"></i>
+            GitHub</a>
+          <a href="/demo" class="btn btn-sm sign_btn btn-rounded navbar-btn"> PRO version</a>
+        </div>-->
+      </div>
     </div>
-    <div class="content">
-        <div class="index_welcome">
-            <h3>欢迎来到空谷</h3>
-            <p>2019年1024，空谷正式开启</p>
+  </nav>
+  <!-- Navbar End -->
+
+  <!--Start Home-->
+  <!--回头确定下内容和图片，用轮播图替换了这块-->
+  <section class="home-full-gradient h-100vh" id="home">
+    <div class="bg-overlay-home" ></div>
+    <div class="home-table">
+      <div class="home-table-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-white text-center">
+                <div class="small_title">
+                  <a href="/demo">
+                    <i class="mdi mdi-fingerprint md-172 logo-white"></i>
+                  </a>
+                </div>
+                <h1 class="header_title mx-auto mt-4 mb-0 font-weight-normal">
+                  <span class="font-weight-bold">空谷</span>
+                  是一个自由
+                  <br />
+                  快乐的王国
+                </h1>
+                <div class="header_subtitle mx-auto pt-4 mb-0 pb-2 text-white">
+                  <iframe src="https://ghbtns.com/github-btn.html?user=Valve&repo=fingerprintjs2&type=star&count=true"
+                    style="border:0; width:100px; height:20px;">
+                  </iframe>
+                  <div class="header_btn mt-3">
+                    <span class="mr-3" style="color:white;">想要了解更多吗?</span>
+                    <a href="/demo" class="btn btn-custom mr-3"><b>联系我</b></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="footer">
-        @空谷2019 eastValley.cn
+  </section>
+  <!--End Home-->
+  <!-- Start Features -->
+  <section class="section bg-light" id="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section_title text-center">
+            <div class="section_title_icon">
+              <i class="mdi mdi-google-circles-extended"></i>
+            </div>
+            <h3 class="mt-3 font-weight-bold">Why use Fingerprint.js?</h3>
+            <p class="section_subtitle mx-auto">
+              Fingerprint.js has a unique approach to prevent fraud on your website.
+              The library generates a unique identifier of a browser without using cookies or any information that can
+              be easily reset by a malicious user.
+              By storing this identifier in your database you will get an accurate idea if someone is trying use the
+              same device (computer, tablet or phone) to
+              register twice, submit a vote multiple times, use multiple credit cards or perform any other type of
+              suspicious activity.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3 vertical-content">
+        <div class="col-lg-6">
+          <div class="text-center features_img mt-3">
+            <img src="src/assets/img/features-1.png" alt="" class="img-fluid mx-auto d-block">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="features_one mt-3">
+            <div class="features_icon text-custom bg-gradient">
+              <i class="mdi mdi-magnify text-white"></i>
+            </div>
+            <div class="features_detail mt-4">
+              <h6 class="text-uppercase font-weight-bold">Advanced identification methods</h6>
+              <div class="features_border mt-3 mb-2"></div>
+              <p class="mt-3 features_desc">
+                Fingerprint.js employs the most advanced methods of identification available: canvas fingerprinting,
+                audio sampling, WebGL fingerprinting, font detection and browser plugin probing.
+                Every method will help you catch more bad actors on your website.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3 vertical-content">
+        <div class="col-lg-6">
+          <div class="features_one mt-3">
+            <div class="features_icon text-custom bg-gradient">
+              <i class="mdi mdi-clock-fast text-white"></i>
+            </div>
+            <div class="features_detail mt-4">
+              <h6 class="text-uppercase font-weight-bold">Fast performance</h6>
+              <div class="features_border mt-3 mb-2"></div>
+              <p class="mt-3 features_desc">
+                You can run Fingerprint.js for every user, even those on low-powered mobile devices.
+                The library will automatically detect browser features and selectively query browser parameters that are
+                available.
+                The Pro version has even faster detection (80-100ms) via greater customizability.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="text-center features_img mt-3">
+            <img src="src/assets/img/features-2.png" alt="" class="img-fluid mx-auto d-block">
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3 vertical-content">
+        <div class="col-lg-6">
+          <div class="text-center features_img mt-3">
+            <img src="src/assets/img/features-3.png" alt="" class="img-fluid mx-auto d-block">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="features_one mt-3">
+            <div class="features_icon text-custom bg-gradient">
+              <i class="mdi mdi-web text-white"></i>
+            </div>
+            <div class="features_detail mt-4">
+              <h6 class="text-uppercase font-weight-bold">Easy to use API</h6>
+              <div class="features_border mt-3 mb-2"></div>
+              <p class="mt-3 features_desc">
+                Written in vanilla JS with zero dependencies, this library can be dropped into any page or used as a
+                module in your build system.
+                Install it via your favorite package manager and you're ready to go.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-<script type="javascript" src="../../js/common/jquery-3.4.1.min.js"></script>
-<script type="javascript" src="../../js/valley/home.js"></script>
+  </section>
+  <!-- End Features -->
+
+  <!-- Start How It Work -->
+  <section id="howitworks" class="section section-no-bottom-margin">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section_title text-center">
+            <div class="section_title_icon">
+              <i class="mdi mdi-fingerprint"></i>
+            </div>
+            <h3 class="mt-3 text-capitalize font-weight-bold">How It Works</h3>
+            <p class="section_subtitle mx-auto">
+              Fingerprint.js collects all the unique features from a device/browser passing them through a hash function
+              to provide a unique identifier.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-lg-4">
+          <div class="text-center position-relative hit_box mt-3 p-4">
+            <div class="hit_content mt-2">
+              <h5 class="font-weight-bold">Collection</h5>
+              <p class="mt-3 mb-0">It collects the unique features from a browser via the client JS</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="text-center position-relative hit_box mt-3 p-4">
+            <div class="hit_content mt-2">
+              <h5 class="font-weight-bold">Processing</h5>
+              <p class="mt-3 mb-0">It processes all collected data to normalize any minor changes</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="text-center position-relative hit_box mt-3 p-4">
+            <div class="hit_content mt-2">
+              <h5 class="font-weight-bold">Hashing</h5>
+              <p class="mt-3 mb-0">It hashes the processed data to produce a unique identifier</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End How It Work -->
+
+  <!-- Start Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="text-right">
+        <a href="#" class="text-warning text-right ">返回顶部
+          <i class="mdi shj-home-foot2head text-warning"></i>
+        </a>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center">
+            <h5 class="text-white">Email: <a href="mailto:shjsnr@163.com"
+                style="color:white"><u>shjsnr@163.com</u></a></h5>
+            <h5 class="text-white">空谷 &copy; 2019</h5>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- Back To Top -->
+  <a href="#" class="back_top"> <i class="mdi mdi-chevron-up"> </i> </a>
+  <script src="src/js/common/jquery-3.4.1.min.js"></script>
+  <script src="src/js/common/jquery-easing.min.js"></script>
+  <script src="src/js/common/bootstrap.min.js"></script>
+  <script src="src/js/common/bootstrap.bundle.min.js"></script>
+  <script src="src/js/valley/index.js"></script>
 </body>
+
 </html>

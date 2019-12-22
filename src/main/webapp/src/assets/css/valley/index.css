@@ -1,100 +1,29 @@
-* {
-    margin: 0px;
-    padding: 0px;
+/*导航栏图标*/
+.shj-home-outline:before {
+    content: url(../../icon/house.svg);
 }
-body {
-    background-color: snow;
+.shj-home-category:before {
+    content: url(../../icon/flag.svg);
 }
-
-.myContainer {
-    width: 80%;
-    margin: 0px auto;
+.shj-home-contact:before {
+    content: url(../../icon/person.svg);
 }
-
-.header {
-    width: 100%;
-    height: 80px;
-    margin: 0px auto;
-    /*background-color: bisque;*/
+.shj-home-about:before {
+    content: url(../../icon/tag-fill.svg);
 }
-
-ul {
-    margin-left: 20px;
-    float: right;
-    list-style-type: none;
-    padding: 6px 0px;
-    margin-right: 100px;
+.shj-home-foot2head:before {
+    content: url(../../icon/cursor.svg);
+}
+/*设置图标大小*/
+.footer {
+    background-color: #9C27B0;
+    padding-top: 1rem;
 }
 
-a:link, a:visited {
-    font-weight: bold;
-    color: darkgray;
-    padding: 6px;
-    text-align: center;
-    text-decoration: none;
+.mdi-menu:before {
+    content: url(../../icon/list.svg);
 }
 
-a:hover, a:active {
-    color: salmon;
-}
-
-.header_title {
-    float: left;
-    font-family: 楷体;
-    font-size: 26px;
-    padding: 10px;
-}
-
-.header_nav {
-    padding: 23px 0px;
-    height: 26px;
-    width: 100%;
-    position: relative;
-}
-li{
-    padding: 0px 10px ;
-    display: inline;
-}
-.header_img {
-    /*border:solid 1px;*/
-    border-radius: 30px;
-    display: inline;
-    width: 26px;
-    height: 26px;
-}
-.header_input{
-    display: inline;
-}
-.header_input form{
-    float: right;
-    width: 100px;
-    height: 30px;
-    position: relative;
-    margin-right: 50px;
-}
-form input{
-    height: 30px;
-
-}
-.footer{
-    padding: 20px 0px;
-    text-align: center;
-    font-size: 12px;
-    color:darkgray;
-}
-.content{
-    height: 500px;
-    width: auto;
-    position: relative;
-}
-
-.index_welcome h3{
-    width: 100%;
-    padding: 100px 10px 0px 10px;
-    position: relative;
-    text-align: center;
-}
-.index_welcome p{
-    text-align: center;
-    margin: 20px 0px;
+.bg-overlay-home {
+    background-image: url(../../img/animation.png);
 }

@@ -16,15 +16,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
     private static Logger logger = LoggerFactory.getLogger(HomeController.class);
     //方法级别的请求处理
-    @RequestMapping(method = RequestMethod.GET,value = {"/home","/index"})
+    @RequestMapping(method = RequestMethod.GET,value = {"/home"})
     public String home(){
         logger.info("首页方法触发了");
-        return "home";
+        return "index";
     }
 
     @RequestMapping(method = RequestMethod.GET,value = {"/homeNew"})
     public String home4Carousel(){
         return "home4Carousel";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = {"/index"})
+    public String homeNew() {
+        return "index";
     }
 
 }
