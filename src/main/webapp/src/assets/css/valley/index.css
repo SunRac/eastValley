@@ -11,9 +11,9 @@
 .shj-home-about:before {
     content: url(../../icon/tag-fill.svg);
 }
-.shj-home-foot2head:before {
+/*.shj-home-foot2head:before {
     content: url(../../icon/cursor.svg);
-}
+}*/
 /*设置图标大小*/
 .footer {
     background-color: #9C27B0;
