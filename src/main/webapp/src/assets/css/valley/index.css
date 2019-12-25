@@ -24,6 +24,11 @@
     content: url(../../icon/list.svg);
 }
 
+#carouselHome .carousel-inner img {
+    height: 60vh;
+    width: 100%;
+    /*width:400vh;*/
+}
 .bg-overlay-home {
     background-image: url(../../img/animation.png);
 }
