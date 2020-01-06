@@ -24,11 +24,11 @@
     content: url(../../icon/list.svg);
 }
 
-#carouselHome .carousel-inner img {
-    /*height: 70vh;*/
+/*#carouselHome .carousel-inner img {
+    !*height: 70vh;*!
     height: 100%;
     width: 100%;
-}
+}*/
 .bg-overlay-home {
     background-image: url(../../img/animation.png);
 }
