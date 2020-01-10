@@ -1,6 +1,5 @@
-package com.eastValley.util;
+package cn.eastvalley.util;
 
-import org.apache.commons.collections4.MapUtils;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;

@@ -1,7 +1,7 @@
-package com.eastValley.data.impl;
+package cn.eastvalley.data.impl;
 
-import com.eastValley.data.Spittle;
-import com.eastValley.data.SpittleRepository;
+import cn.eastvalley.data.Spittle;
+import cn.eastvalley.data.SpittleRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

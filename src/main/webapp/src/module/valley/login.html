@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="管理员登录">
+    <title>登录页面</title>
+    <link rel="shortcut icon" href="/eastValley/favicon.ico">
+    <link href="src/assets/css/common/bootstrap.min.css" rel="stylesheet">
+    <link href="src/assets/css/common/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="src/assets/css/common/bootstrap-reboot.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="src/assets/css/common/main.css">
+</head>
+<body>
+    <div id="login_wrapper" class="container bodyBg">
+        <div>
+            <div class="header">
+                <div id="logo4login">
+                    空谷
+                </div>
+            </div>
+
+            <div class="center">
+                <div id="account">
+                    <label>账号</label>
+                    <div>
+                        <input type="text" />
+                    </div>
+                </div>
+                <div id="password">
+                    <label>密码</label>
+                    <div>
+                        <input type="text"/>
+                    </div>
+                </div>
+                <div id="yzm">
+                    <div>
+                        <input id="yzmInput" placeholder="请输入验证码"/>
+                    </div>
+                    <img  id="yzmImg" title="看不清楚，点击刷新" width="109" height="35">
+                </div>
+            </div>
+
+            <div  class="bottom">
+                <div>
+                    <input id="loginBtn" value="登&nbsp;录"/>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="src/js/common/jquery-3.4.1.min.js"></script>
+    <script src="src/js/common/jquery-easing.min.js"></script>
+    <script src="src/js/common/bootstrap.min.js"></script>
+    <script src="src/js/common/bootstrap.bundle.min.js"></script>
+    <script src="src/js/valley/login.js"></script>
+</body>
+</html>

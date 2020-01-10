@@ -1,6 +1,6 @@
-package com.eastValley.control.spittr;
+package cn.eastvalley.control.spittr;
 
-import com.eastValley.data.SpittleRepository;
+import cn.eastvalley.data.SpittleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/spittles")
 public class SpittleController {
-    private SpittleRepository  spittleRepository;
+    private SpittleRepository spittleRepository;
     @Autowired
     public SpittleController(SpittleRepository spittleRepository) {
         this.spittleRepository = spittleRepository;

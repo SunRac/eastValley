@@ -1,11 +1,11 @@
-package com.eastValley.demo;
+package cn.eastlegend;
 
 /**
  * @author java_shj
  * @desc
- * @createTime 2019/9/27 10:59
+ * @createTime 2020/1/10 11:21
  **/
-public class demo {
+public class Str2Int {
     public static void main(String[] args) {
         RandomTest();
         //int2Str();
@@ -19,12 +19,12 @@ public class demo {
         System.out.println(a);
     }
 
-   static void int2Str(){
+    static void int2Str(){
         String s1 = "2";
         Integer i = Integer.valueOf(s1);
         System.out.println(i);
-       int i1 = Integer.parseInt(s1);
-       System.out.println(i1);
+        int i1 = Integer.parseInt(s1);
+        System.out.println(i1);
 
-   }
+    }
 }

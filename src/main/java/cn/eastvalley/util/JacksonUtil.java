@@ -1,4 +1,4 @@
-package com.eastValley.util;
+package cn.eastvalley.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

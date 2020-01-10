@@ -1,4 +1,4 @@
-package com.eastValley.data;
+package cn.eastvalley.data;
 
 import java.util.Date;
 import java.util.Objects;
