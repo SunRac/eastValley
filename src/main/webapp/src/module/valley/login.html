@@ -19,17 +19,38 @@
         <h2>空谷</h2>
         <form>
             <div class="form-group">
-                <label >用户名:</label>
-                <input type="email" class="form-control" id="user" placeholder="请输入用户名"/>
+                <label>用户名:</label>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" id="user" placeholder="请输入用户名"/>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label>密码:</label>
-                <input type="password" class="form-control" id="password" placeholder="请输入密码" autocomplete="on"/>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="password" placeholder="请输入密码"
+                               autocomplete="on"/>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label class="b_label">验证码:</label>
-                <input type="imput" class="form-control" id="yzm" placeholder="请输入验证码" >
-                <img  id="yzmImg" title="看不清楚，点击刷新" width="109" height="35" onclick="src='/eastValley/validateCodeServlet?'+ new Date().getTime()" >
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="input" class="form-control" id="yzm" placeholder="请输入验证码">
+                            </div>
+                            <div class="col-sm-6 ">
+                                <img id="yzmImg" title="看不清楚，点击刷新" width="109" height="35"
+                                     onclick="src='/eastvalley/validateCodeServlet?'+ new Date().getTime()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="form-check">
                 <label class="form-check-label">
@@ -37,13 +58,16 @@
                 </label>
             </div>
             <button type="submit" class="btn btn-primary">提交</button>
-        </form>
     </div>
+    </form>
 </div>
-    <script src="src/js/common/jquery-3.4.1.min.js"></script>
-    <script src="src/js/common/jquery-easing.min.js"></script>
-    <script src="src/js/common/bootstrap.min.js"></script>
-    <script src="src/js/common/bootstrap.bundle.min.js"></script>
-    <script src="src/js/valley/login.js"></script>
+</form>
+</div>
+</div>
+<script src="src/js/common/jquery-3.4.1.min.js"></script>
+<script src="src/js/common/jquery-easing.min.js"></script>
+<script src="src/js/common/bootstrap.min.js"></script>
+<script src="src/js/common/bootstrap.bundle.min.js"></script>
+<script src="src/js/valley/login.js"></script>
 </body>
 </html>
