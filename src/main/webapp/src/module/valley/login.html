@@ -10,46 +10,36 @@
     <link href="src/assets/css/common/bootstrap.min.css" rel="stylesheet">
     <link href="src/assets/css/common/bootstrap-grid.min.css" rel="stylesheet">
     <link href="src/assets/css/common/bootstrap-reboot.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="src/assets/css/common/main.css">
+    <link href="src/assets/css/valley/login.css" rel="stylesheet">
 </head>
 <body>
-    <div id="login_wrapper" class="container bodyBg">
-        <div>
-            <div class="header">
-                <div id="logo4login">
-                    空谷
-                </div>
-            </div>
 
-            <div class="center">
-                <div id="account">
-                    <label>账号</label>
-                    <div>
-                        <input type="text" />
-                    </div>
-                </div>
-                <div id="password">
-                    <label>密码</label>
-                    <div>
-                        <input type="text"/>
-                    </div>
-                </div>
-                <div id="yzm">
-                    <div>
-                        <input id="yzmInput" placeholder="请输入验证码"/>
-                    </div>
-                    <img  id="yzmImg" title="看不清楚，点击刷新" width="109" height="35" onclick="src='/eastValley/validateCodeServlet?'+ new Date().getTime()" >
-                </div>
+<div class="bodyBg">
+    <div class="container ">
+        <h2>空谷</h2>
+        <form>
+            <div class="form-group">
+                <label >用户名:</label>
+                <input type="email" class="form-control" id="user" placeholder="请输入用户名"/>
             </div>
-
-            <div  class="bottom">
-                <div>
-                    <input id="loginBtn" value="登&nbsp;录"/>
-                </div>
+            <div class="form-group">
+                <label>密码:</label>
+                <input type="password" class="form-control" id="password" placeholder="请输入密码" autocomplete="on"/>
             </div>
-        </div>
-
+            <div class="form-group">
+                <label class="b_label">验证码:</label>
+                <input type="imput" class="form-control" id="yzm" placeholder="请输入验证码" >
+                <img  id="yzmImg" title="看不清楚，点击刷新" width="109" height="35" onclick="src='/eastValley/validateCodeServlet?'+ new Date().getTime()" >
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox">记住我
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary">提交</button>
+        </form>
     </div>
+</div>
     <script src="src/js/common/jquery-3.4.1.min.js"></script>
     <script src="src/js/common/jquery-easing.min.js"></script>
     <script src="src/js/common/bootstrap.min.js"></script>
