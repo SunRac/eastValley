@@ -17,5 +17,5 @@ else if(hour >=14 && hour <=18){
 
 //页面加载完成后，生成验证码
 $(function () {
-    $("#yzmImg").attr("src", '/eastValley/validateCodeServlet?'+ new Date().getTime());
+    $("#yzmImg").attr("src", '/eastvalley/validateCodeServlet?'+ new Date().getTime());
 });

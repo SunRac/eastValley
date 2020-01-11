@@ -13,7 +13,7 @@
     <!--开启springmvc-->
     <mvc:annotation-driven/>
     <!--开启组件扫描-->
-    <context:component-scan base-package="com.eastValley"></context:component-scan>
+    <context:component-scan base-package="cn.eastvalley"></context:component-scan>
     <!--配置资源文件不被dispatcherServlet处理，使用默认servlet-->
     <mvc:default-servlet-handler/>
 

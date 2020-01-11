@@ -1,17 +1,20 @@
 /*导航栏图标*/
-.shj-home-outline:before {
+.home-outline:before {
     content: url(../../icon/house.svg);
 }
-.shj-home-category:before {
+.home-category:before {
     content: url(../../icon/flag.svg);
 }
-.shj-home-contact:before {
-    content: url(../../icon/person.svg);
+.home-contact:before {
+    content: url(../../icon/heart.svg);
 }
-.shj-home-about:before {
+.home-about:before {
     content: url(../../icon/tag-fill.svg);
 }
-/*.shj-home-foot2head:before {
+.home-login:before {
+    content: url(../../icon/person.svg);
+}
+/*.home-foot2head:before {
     content: url(../../icon/cursor.svg);
 }*/
 /*设置图标大小*/
