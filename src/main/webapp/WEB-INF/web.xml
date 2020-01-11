@@ -28,14 +28,14 @@
     </servlet-mapping>-->
 <!--在此配置的值会覆盖index.jsp-->
     <!--yzm servlet 开始-->
-    <servlet>
+   <!-- <servlet>
         <servlet-name>validateCodeServlet</servlet-name>
         <servlet-class>com.eastValley.servlet.ValidateCodeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>validateCodeServlet</servlet-name>
         <url-pattern>/validateCodeServlet</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <!--yzm servlet 结束-->
 <welcome-file-list>
     <welcome-file>/src/module/valley/index.html</welcome-file>

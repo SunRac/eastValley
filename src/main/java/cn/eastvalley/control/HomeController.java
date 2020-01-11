@@ -1,4 +1,4 @@
-package cn.eastvalley.control.spittr;
+package cn.eastvalley.control;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +30,11 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.GET, value = {"/index"})
     public String homeNew() {
         return "index";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = {"/login"})
+    public String toLogin() {
+        return "login";
     }
 
 }

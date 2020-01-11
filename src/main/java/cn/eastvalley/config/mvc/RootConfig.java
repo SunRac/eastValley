@@ -1,4 +1,4 @@
-package cn.eastvalley.javaConfig.mvc;
+package cn.eastvalley.config.mvc;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @createTime 2019/9/28 18:27
  **/
 @Configuration
-@ComponentScan(basePackages = {"com.eastValley"},
+@ComponentScan(basePackages = {"cn.eastvalley"},
     excludeFilters = {@Filter(type=FilterType.ANNOTATION, value= EnableWebMvc.class)})
 public class RootConfig {
 }

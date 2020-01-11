@@ -1,4 +1,4 @@
-package cn.eastvalley.control.spittr;
+package cn.eastvalley.control;
 
 import cn.eastvalley.data.SpittleRepository;
 import org.springframework.beans.factory.annotation.Autowired;

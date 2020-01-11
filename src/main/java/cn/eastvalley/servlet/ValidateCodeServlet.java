@@ -36,8 +36,8 @@ public class ValidateCodeServlet extends HttpServlet {
         graphics.setColor(getRandomColor());
 //        使用画笔填充一个矩形局域
         graphics.fillRect(0,0,width,height);
-        int iteratorTime = 100;
-//        随机在画板上画100个圆
+        int iteratorTime = 5;
+//        随机在画板上画100个圆,太多了很难看清，变成5个
         for(int i = 0; i < iteratorTime; i++) {
             graphics.setColor(getRandomColor());
             int rx = (int) (Math.random() * width);
@@ -92,7 +92,7 @@ public class ValidateCodeServlet extends HttpServlet {
         int i = 0;
         //只有位于48-57、大写字母65-90 小写字符97-122范围时，才能转换成数字或字母
         Random random = new Random();
-        while(!(i >= 48 && i <= 57) || i >= 65 && i <= 90 || i >= 97 && i <= 122){
+        while(!((i >= 48 && i <= 57) || i >= 65 && i <= 90 || i >= 97 && i <= 122)){
              i = random.nextInt(128);
         }
         char c = (char) i;
