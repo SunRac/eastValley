@@ -1,6 +1,5 @@
 package cn.eastvalley.control;
 
-import cn.eastvalley.data.SpittleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestParam;
  * 传入参数：请求参数@RequestParam、路径变量@PathVariable、表单参数
  * @createTime 2019/9/30 16:00
  **/
-@Controller
-@RequestMapping("/spittles")
+/*@Controller
+@RequestMapping("/spittles")*/
 public class SpittleController {
-    private SpittleRepository spittleRepository;
+   /* private SpittleRepository spittleRepository;
     @Autowired
     public SpittleController(SpittleRepository spittleRepository) {
         this.spittleRepository = spittleRepository;
-    }
+    }*/
     @RequestMapping(value="/{spittleId}", method = RequestMethod.GET)
     // 由于查询参数都是string类型的，因此defaultValue是字符串，但是绑定到方法中的max参数时会转换为long
     public String spittles(@RequestParam(value="max",defaultValue = "99999") long max,
@@ -31,7 +30,7 @@ public class SpittleController {
                            Model model) {
 
         //model实际是一个map，它会传递给视图，这样数据(spittleRepository)就渲染到客户端了
-        model.addAttribute("spittleList", spittleRepository.findSpittles(Long.MAX_VALUE, 20));
+//        model.addAttribute("spittleList", spittleRepository.findSpittles(Long.MAX_VALUE, 20));
         return "home";
     }
 

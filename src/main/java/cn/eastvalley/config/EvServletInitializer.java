@@ -1,4 +1,4 @@
-package cn.eastvalley.config.mvc;
+package cn.eastvalley.config;
 
 import cn.eastvalley.servlet.ValidateCodeServlet;
 import org.springframework.web.WebApplicationInitializer;
