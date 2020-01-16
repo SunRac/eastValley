@@ -1,6 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!--spring-mybatis整合配置文件-->
+
+    <!--1、sqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--必选属性 数据源-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--可选，mybatis配置文件，也可在这里边配置mappers-->
+        <!--<property name="configLocation" value="classpath:。。。"/>-->
+        <!--可选，mybatis中映射xml文件位置,会自动搜索对应目录下的映射配置文件-->
+        <property name="mapperLocations" value="classpath:orm/**/*.xml"/>
+    </bean>
+
+    <!--1.1、数据源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <!--基本属性 url、username、password-->
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+
+        <!--配置监控统计拦截的filters-->
+        <property name="filters" value="stat" />
+
+        <!--初始化配置、最大连接数、最小连接数-->
+        <property name="initialSize" value="5" />
+        <property name="maxActive" value="20" />
+        <property name="minIdle" value="5" />
+
+        <!--获取连接等待超时时间-->
+        <property name="maxWait" value="60000" />
+
+
+        <!--配置隔多久检测检测一次需要关闭的空闲连接，单位毫秒-->
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+
+        <!--配置一个连接在池中最小生存时间-->
+        <property name="minEvictableIdleTimeMillis" value="300000" />
+
+        <!--申请连接时检测空闲时间是否大于timeBetweenEvictionRunsMillis,从而判断连接是否有效，不影响性能-->
+        <property name="testWhileIdle" value="true" />
+        <!--申请连接时执行validationQuery检测连接是否有效，开启会降低性能-->
+        <property name="testOnBorrow" value="false" />
+        <!--归还连接时执行validationQuery检测连接是否有效，开启会降低性能-->
+        <property name="testOnReturn" value="false" />
+        <!--用来检测连接是否有效，value是一个sql，如果为null,则以上3个检测连接是否有效都不会起作用-->
+        <property name="validationQuery" value="select 'x'"/>
+
+        <!--是否缓存prepareStatement，即启动PSCache-->
+        <property name="poolPreparedStatements" value="true" />
+        <property name="maxOpenPreparedStatements" value="20" />
+
+        <!--initialSize较多时，打开会加快应用启动时间-->
+        <property name="asyncInit" value="true" />
+
+    </bean>
+
+    <!--由mybatis创建的线程安全、事务相关的sqlSession，可以无缝替代由sqlSessionFactory创建的sqlSession-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
+
+
+    <!--2、注入映射器类-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--映射器接口所在的包-->
+        <property name="basePackage" value="cn.eastvalley.mapper"/>
+    </bean>
+
+
+    <!--3、事务管理-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--开启支持事务的注解，即@Transactional-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!--4、自动加载配置文件中的配置-->
+    <bean class="cn.eastvalley.util.PropertyConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:config/jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
 
 </beans>
