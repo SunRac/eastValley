@@ -57,17 +57,17 @@
 
     </bean>
 
-    <!--由mybatis创建的线程安全、事务相关的sqlSession，可以无缝替代由sqlSessionFactory创建的sqlSession-->
+    <!--2、方案一：由mybatis创建的线程安全、事务相关的sqlSession，可以无缝替代由sqlSessionFactory创建的sqlSession-->
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
 
 
-    <!--2、注入映射器类-->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!--映射器接口所在的包-->
+    <!--2、方案二：注入映射器类，使用mapper接口，而不是使用sqlSession以及Dao-->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        &lt;!&ndash;映射器接口所在的包&ndash;&gt;
         <property name="basePackage" value="cn.eastvalley.mapper"/>
-    </bean>
+    </bean>-->
 
 
     <!--3、事务管理-->
