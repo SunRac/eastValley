@@ -113,6 +113,7 @@ public class BaseDaoImpl implements BaseDao{
     public List<Map<String, Object>> queryForList(String sqlId, Map<String, Object> params) {
         List<Map<String, Object>> mapList = getSqlSession().selectList(sqlId, params);
         return ConvertUtil.convertSqlMap2JavaMap(mapList);
+//        return mapList;
     }
 
     /**

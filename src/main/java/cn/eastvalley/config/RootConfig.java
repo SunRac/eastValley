@@ -1,10 +1,7 @@
 package cn.eastvalley.config;
 
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
@@ -15,6 +12,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 @ComponentScan(basePackages = {"cn.eastvalley.dao","cn.eastvalley.service"},
     excludeFilters = {@Filter(type=FilterType.ANNOTATION, value= EnableWebMvc.class)})
-@PropertySource( name="contextConfiglocation",value = "classpath:spring/spring-all.xml")
+@ImportResource("classpath:spring/spring-all.xml")
 public class RootConfig {
 }
