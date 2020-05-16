@@ -28,39 +28,34 @@ import java.util.Map;
 /**
  * @author java_shj
  * @desc 封装了HttpClient的工具类
- * TODO 要不要每次请求时获取httpClient呢?
  * @createTime 2019/12/17 10:53
  **/
 public class HttpClientUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HttpClientUtil.class);
 
-    //CloseableHttpClient是线程安全的，可以全局用一个吗？----待验证
-    private static CloseableHttpClient httpClient ;
+    private static PoolingHttpClientConnectionManager clientManager ;
+    private static RequestConfig requestConfig ;
 
     //静态初始化
     static {
-        LayeredConnectionSocketFactory sslSocketFactory = null;
         try {
-            sslSocketFactory = new SSLConnectionSocketFactory(SSLContext.getDefault());
+            LayeredConnectionSocketFactory sslSocketFactory = new SSLConnectionSocketFactory(SSLContext.getDefault());
+            //配置同时支持http和https请求
+            Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
+                    .register("https", sslSocketFactory)
+                    .register("http", new PlainConnectionSocketFactory()).build();
+            //初始化连接池管理器
+            clientManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
+            //设置整个连接池最大连接数
+            clientManager.setMaxTotal(1000);
+            //设置单个服务器最大连接数
+            clientManager.setDefaultMaxPerRoute(500);
+            //配置：连接服务器、从连接池获取连接、读取服务器返回数据超时时间，避免内存或者线程池溢出
+            requestConfig = RequestConfig.custom().setConnectTimeout(3000).setConnectionRequestTimeout(3000).setSocketTimeout(3000).build();
         } catch (NoSuchAlgorithmException e) {
             LOGGER.error("初始化LayeredConnectionSocketFactory失败", e);
         }
-
-        //配置同时支持http和https请求
-        Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
-                .register("https", sslSocketFactory)
-                .register("http", new PlainConnectionSocketFactory()).build();
-        //初始化连接池管理器
-        PoolingHttpClientConnectionManager clientManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
-        //设置整个连接池最大连接数
-        clientManager.setMaxTotal(1000);
-        //设置单个服务器最大连接数
-        clientManager.setDefaultMaxPerRoute(200);
-        //配置：连接服务器、从连接池获取连接、读取服务器返回数据超时时间，避免内存或者线程池溢出
-        RequestConfig requestConfig = RequestConfig.custom().setConnectTimeout(3000).setConnectionRequestTimeout(3000).setSocketTimeout(3000).build();
-        httpClient = HttpClients.custom().setConnectionManager(clientManager).setDefaultRequestConfig(requestConfig).build();
-
     }
 
     /**
@@ -68,14 +63,17 @@ public class HttpClientUtil {
      * @return 响应结果字符串，可以根据需要转换成对象
      */
     public static String invokePost4Json(String url, String paramStr, Map<String, Object> headers)  {
-//        CloseableHttpClient client = getHttpClient();
+        CloseableHttpClient httpClient = getHttpClientByPool();
+        System.out.println("当前client:    " + httpClient);
         CloseableHttpResponse response = null;
         String result = null;
 //        建立post请求
         HttpPost post = new HttpPost(url);
 //        设置请求头
-        for (String headerName : headers.keySet()) {
-            post.addHeader(headerName, String.valueOf(headers.get(headerName)));
+        if(headers != null){
+            for (String headerName : headers.keySet()) {
+                post.addHeader(headerName, String.valueOf(headers.get(headerName)));
+            }
         }
 //        设置Json字符串格式的请求参数
         StringEntity entity = new StringEntity(paramStr, "UTF-8");
@@ -99,9 +97,12 @@ public class HttpClientUtil {
 
     /**
      * get方式请求
-     * @paramStr 请求字符串
+     * @param headers 请求头
+     * @param url 请求url，包含请求参数
      */
     public static String invokeGet(String url, Map<String, Object> headers)  {
+        CloseableHttpClient httpClient = getHttpClientByPool();
+        System.out.println("当前client:    " + httpClient);
         CloseableHttpResponse response = null;
         String result = null;
 //        建立get请求
@@ -112,11 +113,6 @@ public class HttpClientUtil {
                 get.addHeader(headerName, String.valueOf(headers.get(headerName)));
             }
         }
-        /*if(headers !=null && MapUtils.isNotEmpty(headers)){
-            for (String headerName : headers.keySet()) {
-                get.addHeader(headerName, String.valueOf(headers.get(headerName)));
-            }
-        }*/
 //        发送请求，接收响应
         try {
             System.out.println(httpClient);
@@ -144,7 +140,7 @@ public class HttpClientUtil {
             try {
                 response.close();
                 //关闭连接，使用连接池时则不用手动关闭连接
-//                    CLIENT.close();
+//                    httpClient.close();
             } catch (Exception e) {
                 LOGGER.error("HttpClientUtil关闭连接异常：", e);
             } finally {
@@ -153,17 +149,19 @@ public class HttpClientUtil {
         }
     }
 
+    /**
+     * 通过httpClient连接池获取httpClient实例
+     */
+    private static CloseableHttpClient getHttpClientByPool() {
+        return HttpClients.custom().setConnectionManager(clientManager).setDefaultRequestConfig(requestConfig).build();
+    }
 
     /**
      * 获取httpClient
      */
     private static CloseableHttpClient getHttpClient() {
         //不使用连接池时
-        CloseableHttpClient httpClient = HttpClients.createDefault();
-//        使用httpClient连接池
-//        CloseableHttpClient httpClient = HttpClients.custom().setConnectionManager(clientManager).setDefaultRequestConfig(requestConfig).build();
-
-        return httpClient;
+        return HttpClients.createDefault();
     }
 
 
